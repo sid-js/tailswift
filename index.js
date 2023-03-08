@@ -4,7 +4,6 @@ import inquirer from "inquirer";
 import shell from "shelljs";
 import chalk from "chalk";
 import fs from "fs";
-import ProgressBar from "progress";
 
 inquirer
   .prompt([
@@ -15,19 +14,29 @@ inquirer
       choices: ["React"],
     },
   ])
-  .then((answers) => {
+  .then(async (answers) => {
     console.log(
       chalk.yellow(`Installing TailwindCSS for ${answers.framework}...`)
     );
 
     // Install TailwindCSS using npm with the  flag to suppress output
-    shell.exec("npm install -D tailwindcss postcss autoprefixer ", {
-      async: true,
-      silent: true,
-    });
+    try {
+      await shell.exec("npm install -D tailwindcss postcss autoprefixer ", {
+        async: true,
+        silent: true,
+      });
+    } catch (error) {
+      console.error(chalk.red(`Error: ${error}`));
+      process.exit(1);
+    }
 
     // Generate the config file
-    shell.exec("npx tailwindcss init -p", { silent: true });
+    try {
+      await shell.exec("npx tailwindcss init -p", { silent: true });
+    } catch (error) {
+      console.error(chalk.red(`Error: ${error}`));
+      process.exit(1);
+    }
 
     // Add Tailwind directives to the CSS
     switch (answers.framework) {
