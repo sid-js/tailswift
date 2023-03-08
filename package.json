@@ -13,11 +13,22 @@
   "author": "Sidharth Sreejil",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^10.4.13",
     "inquirer": "^9.1.4",
-    "postcss-cli": "^10.1.0",
-    "progress": "^2.0.3",
-    "shelljs": "^0.8.5",
-    "tailwindcss": "^3.2.7"
+    "shelljs": "^0.8.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sid-js/tailswift.git"
+  },
+  "keywords": [
+    "tailwindcss",
+    "react",
+    "cli",
+    "auto",
+    "install",
+    "tailswift"
+  ],
+  "dependencies": {
+    "chalk": "^5.2.0"
   }
 }
