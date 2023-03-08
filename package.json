@@ -1,6 +1,6 @@
 {
   "name": "tailswift",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI tool to install and setup TailwindCSS into a project faster.",
   "main": "index.js",
   "type": "module",
